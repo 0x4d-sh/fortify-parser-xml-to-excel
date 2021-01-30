@@ -10,7 +10,7 @@ The output will be in `.xlsx` file format.
 - File (.xml) that is generated from Fortify
 
 ## Generate .XML from Fortify
-1. Go to Audit Workbench to gnerate your report
+1. Go to Audit Workbench to generate your report under `Tools > Reports > Generate Legacy Report > Fortify Developer Workbook`
 2. Under "Results Outline" panel, open up the listings sections
 3. Uncheck the limit number of issues in each group setting if checked
 
