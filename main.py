@@ -8,6 +8,8 @@ def parse_xml(categories, tab, item_count):
     result = {tab: []}
 
     for index, category in enumerate(categories):
+        index = index + 1
+
         title = category.find("groupTitle").get_text()
         explanation = category.find("MajorAttributeSummary").find_all("Value")[1].get_text()
         recommendation = category.find("MajorAttributeSummary").find_all("Value")[2].get_text()
@@ -15,9 +17,9 @@ def parse_xml(categories, tab, item_count):
 
         if len(issues) >= item_count:
             result[title], category, risk, description = parse_issues(issues, explanation, recommendation)
-            result[tab].append(create_item(index + 1, category, risk, description, explanation, recommendation))
+            result[tab].append(create_item(index, category, risk, description, explanation, recommendation))
         else:
-            tmp, _, _, _ = parse_issues(issues, explanation, recommendation, index + 1, True)
+            tmp, _, _, _ = parse_issues(issues, explanation, recommendation, index, True)
             result[tab] = result[tab] + tmp
             
     return result
@@ -31,7 +33,7 @@ def parse_issues(issues, explanation, recommendation, m_index = 0, main = False)
 
     for index, issue in enumerate(issues):
         result.append(create_item(
-            m_index + 1 if main == True else index + 1,
+            m_index if main == True else index + 1,
             issue.find("Category").get_text(),
             issue.find("Folder").get_text(),
             issue.find("Abstract").get_text(),

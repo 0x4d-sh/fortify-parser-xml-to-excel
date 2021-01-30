@@ -19,6 +19,6 @@ The output will be in `.xlsx` file format.
 To simply workflow, you can first check issues and analysis before generating .xml report.
 
 ## Usage
-Run `python3 main.py -f <input filie in .xlsx> -t <tab name of first excel sheet> -m <max record to display before creating new sheets for the category> -o <output filename>`
+Run `python3 main.py -f <input filie in .xlsx> -t <tab name of first excel sheet> -m <max record to display in main tab> -o <output filename>`
 
 ![Default Mode Gif](example/example.gif "Fortify Parser")
